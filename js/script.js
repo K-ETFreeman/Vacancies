@@ -239,8 +239,9 @@ var formswitch = function formswitch() {
 };
 
 var scrolltoform = function scrolltoform() {
+  var coords = document.querySelector('.formcontainer').getBoundingClientRect();
   window.scroll({
-    top: document.querySelector('.form').getBoundingClientRect.top + pageYOffset,
+    top: coords.top + pageYOffset - window.innerHeight / 2 + coords.height / 2,
     behavior: 'smooth'
   });
   var input = document.querySelector('.switch input');
