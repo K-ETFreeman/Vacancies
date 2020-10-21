@@ -238,6 +238,20 @@ var formswitch = function formswitch() {
   }
 };
 
+var scrolltoform = function scrolltoform() {
+  window.scroll({
+    top: document.querySelector('.form').getBoundingClientRect.top + pageYOffset,
+    behavior: 'smooth'
+  });
+  var input = document.querySelector('.switch input');
+
+  if (document.querySelector('.job__button').getAttribute('data-formtype') == "promo" && document.querySelector('.form').classList.contains('office') || document.querySelector('.job__button').getAttribute('data-formtype') == "office" && !document.querySelector('.form').classList.contains('office')) {
+    document.querySelector('.switch').dispatchEvent(new Event('click'));
+    input.dispatchEvent(new Event('click'));
+    input.checked = !input.checked;
+  }
+};
+
 var medswiper = new Swiper(document.querySelector('.media .swiper-container'), {
   loop: true,
   autoplay: true,
